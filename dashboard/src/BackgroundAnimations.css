@@ -1,0 +1,395 @@
+/* ==========================================
+   ADVANCED BACKGROUND ANIMATIONS
+   Agricultural Theme with Multiple Elements
+   ========================================== */
+
+/* Floating Farm Elements Container */
+.farm-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Water Droplets */
+.water-drop {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50% 50% 50% 0;
+  animation: dropFall 4s ease-in infinite;
+  opacity: 0;
+}
+
+.water-drop:nth-child(1) { left: 10%; animation-delay: 0s; }
+.water-drop:nth-child(2) { left: 25%; animation-delay: 1s; }
+.water-drop:nth-child(3) { left: 40%; animation-delay: 2s; }
+.water-drop:nth-child(4) { left: 55%; animation-delay: 0.5s; }
+.water-drop:nth-child(5) { left: 70%; animation-delay: 1.5s; }
+.water-drop:nth-child(6) { left: 85%; animation-delay: 2.5s; }
+
+@keyframes dropFall {
+  0% {
+    top: -10%;
+    opacity: 0;
+    transform: rotate(0deg) scale(0.5);
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Floating Crops Icons */
+.floating-crop {
+  position: absolute;
+  font-size: 24px;
+  animation: cropFloat 20s ease-in-out infinite;
+  opacity: 0.4;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.floating-crop:nth-child(7) { 
+  top: 10%; 
+  left: 5%; 
+  animation-delay: 0s;
+}
+.floating-crop:nth-child(8) { 
+  top: 30%; 
+  left: 90%; 
+  animation-delay: 5s;
+  font-size: 28px;
+}
+.floating-crop:nth-child(9) { 
+  top: 60%; 
+  left: 15%; 
+  animation-delay: 10s;
+  font-size: 32px;
+}
+.floating-crop:nth-child(10) { 
+  top: 80%; 
+  left: 75%; 
+  animation-delay: 15s;
+  font-size: 26px;
+}
+.floating-crop:nth-child(11) { 
+  top: 45%; 
+  left: 50%; 
+  animation-delay: 7s;
+  font-size: 30px;
+}
+
+@keyframes cropFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-30px) translateX(20px) rotate(5deg) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px) rotate(-5deg) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-40px) translateX(10px) rotate(3deg) scale(1.05);
+    opacity: 0.45;
+  }
+}
+
+/* Soil/Ground Pattern */
+.soil-pattern {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      rgba(101, 67, 33, 0.03) 0px,
+      rgba(101, 67, 33, 0.05) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(
+      0deg,
+      rgba(139, 69, 19, 0.08) 0%,
+      transparent 100%
+    );
+  z-index: -2;
+  animation: soilShift 30s linear infinite;
+}
+
+@keyframes soilShift {
+  0% {
+    background-position: 0px 0px, 0px 0px;
+  }
+  100% {
+    background-position: 100px 0px, 0px 0px;
+  }
+}
+
+/* Sun in Corner */
+.sun-decoration {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 223, 0, 0.6) 0%, rgba(255, 193, 7, 0.4) 50%, transparent 70%);
+  box-shadow: 
+    0 0 60px rgba(255, 223, 0, 0.4),
+    0 0 100px rgba(255, 193, 7, 0.3);
+  animation: sunPulse 4s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes sunPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  animation: cloudDrift 40s linear infinite;
+  opacity: 0.7;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+}
+
+.cloud-1 {
+  width: 100px;
+  height: 40px;
+  top: 10%;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.cloud-1::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 10px;
+}
+
+.cloud-1::after {
+  width: 60px;
+  height: 40px;
+  top: -15px;
+  right: 10px;
+}
+
+.cloud-2 {
+  width: 120px;
+  height: 45px;
+  top: 25%;
+  left: -180px;
+  animation-delay: 15s;
+}
+
+.cloud-2::before {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 15px;
+}
+
+.cloud-2::after {
+  width: 65px;
+  height: 45px;
+  top: -18px;
+  right: 15px;
+}
+
+@keyframes cloudDrift {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+/* Twinkling Stars (for evening feel) */
+.twinkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.twinkle:nth-child(12) { top: 15%; left: 20%; animation-delay: 0s; }
+.twinkle:nth-child(13) { top: 25%; left: 60%; animation-delay: 1s; }
+.twinkle:nth-child(14) { top: 35%; left: 80%; animation-delay: 2s; }
+.twinkle:nth-child(15) { top: 45%; left: 30%; animation-delay: 0.5s; }
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Growing Plants Animation */
+.growing-plant {
+  position: absolute;
+  font-size: 20px;
+  bottom: 100px;
+  animation: plantGrow 10s ease-in-out infinite;
+  opacity: 0;
+}
+
+.growing-plant:nth-child(16) { left: 15%; animation-delay: 0s; }
+.growing-plant:nth-child(17) { left: 45%; animation-delay: 3s; }
+.growing-plant:nth-child(18) { left: 75%; animation-delay: 6s; }
+
+@keyframes plantGrow {
+  0% {
+    transform: translateY(50px) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Butterflies */
+.butterfly {
+  position: absolute;
+  font-size: 18px;
+  animation: butterflyFly 25s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.butterfly:nth-child(19) { 
+  top: 20%; 
+  left: -50px; 
+  animation-delay: 0s; 
+}
+.butterfly:nth-child(20) { 
+  top: 50%; 
+  left: -50px; 
+  animation-delay: 10s; 
+}
+
+@keyframes butterflyFly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    left: -50px;
+  }
+  25% {
+    transform: translate(100px, -50px) rotate(15deg);
+  }
+  50% {
+    transform: translate(200px, 0px) rotate(-10deg);
+    left: 30%;
+  }
+  75% {
+    transform: translate(300px, -30px) rotate(20deg);
+  }
+  100% {
+    transform: translate(400px, 0) rotate(0deg);
+    left: 110%;
+  }
+}
+
+/* Wind Effect on Grass */
+.grass-effect {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(
+    0deg,
+    rgba(129, 199, 132, 0.2) 0%,
+    transparent 100%
+  );
+  animation: windSway 8s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes windSway {
+  0%, 100% {
+    transform: skewX(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: skewX(2deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: skewX(-2deg);
+    opacity: 0.35;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sun-decoration {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .cloud {
+    transform: scale(0.7);
+  }
+  
+  .floating-crop {
+    font-size: 18px !important;
+  }
+  
+  .water-drop {
+    width: 6px;
+    height: 6px;
+  }
+}

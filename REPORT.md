@@ -361,7 +361,7 @@ Overall Progress: 75% Complete
 - Long-term: Mobile app; ML predictions; multi-farm; Weather API integration
 
 ## 15. CONCLUSION
-Software components are complete and tested. The system can display fake data, accept real sensor data, generate charts and statistics, and show alerts based on thresholds.
+Software components are complete and tested. The system accepts real sensor data from ESP32 hardware, generates charts and statistics, and shows alerts based on thresholds.
 
 ---
 
@@ -390,12 +390,8 @@ Software components are complete and tested. The system can display fake data, a
   - Every 30s: POST `{ temperature, humidity, soil_moisture }` to `http://<PC‑IPv4>:5000/api/sensor-data`.
   - Serial logs show POST status (expect `=> 201`).
 
-- **Fake Data Generator (Node script)**
-  - `backend/fake-data-generator.js` posts realistic readings.
-  - CLI: `--count` and `--interval` or set `API_URL` env.
-
 - **End‑to‑End Data Flow**
-  - ESP32/faker → POST sensor data → Backend validates/stores → Frontend polls and renders → Alerts based on thresholds.
+  - ESP32 → POST sensor data → Backend validates/stores → Frontend polls and renders → Alerts based on thresholds.
 
 ### Project Repository Structure
 ```
@@ -404,7 +400,7 @@ smart-farm/
 ├── backend/
 │   ├── server.js              (Main backend file)
 │   ├── package.json           (Dependencies)
-│   └── fake-data-generator.js (Testing tool)
+│   └── (Backend server files)
 │
 ├── dashboard/
 │   ├── src/
