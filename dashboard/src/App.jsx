@@ -11,6 +11,8 @@ import {
 } from 'recharts';
 import ThemeToggle from './ThemeToggle';
 import WeatherWidget from './WeatherWidget';
+import AdvancedAnalytics from './AdvancedAnalytics';
+import IrrigationScheduler from './IrrigationScheduler';
 
 const API_BASE = '/api';
 
@@ -600,6 +602,10 @@ export default function App({ user, onLogout }) {
       <StatsPanel stats={stats} />
       <TempHumidityChart data={history} />
       <SoilChart data={history} />
+      
+      <IrrigationScheduler devices={devices} />
+      
+      <AdvancedAnalytics history={history} waterUsage={waterUsage} devices={devices} />
       
       {selectedDevice && (
         <DeviceModal device={selectedDevice} onClose={() => setSelectedDevice(null)} />

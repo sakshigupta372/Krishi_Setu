@@ -72,32 +72,76 @@
 
 ---
 
-## 🚧 IN PROGRESS
+## ✅ COMPLETED FEATURES (Continued)
 
-### 3. 📊 Advanced Analytics
-**Status:** Planning (0%)
+### 3. 📊 Advanced Analytics (100% Complete)
+**Status:** ✅ LIVE
 
-**Planned Features:**
-- Weekly/Monthly reports
-- Water consumption trends
-- Cost savings calculator
-- Soil moisture analytics
-- Best irrigation times
-- Comparative analysis
-- Export reports to PDF/CSV
+**What's Done:**
+- ✅ Key metrics dashboard (Water, Cost, Efficiency, Irrigations)
+- ✅ Weekly water usage chart (Area chart)
+- ✅ System efficiency pie chart
+- ✅ Monthly comparison bar chart (This year vs Last year)
+- ✅ Smart insights (Best irrigation time, trends, ROI)
+- ✅ Personalized recommendations
+- ✅ Cost breakdown & analysis
+- ✅ Annual projections
+- ✅ Beautiful responsive UI
+
+**Files Created:**
+- `AdvancedAnalytics.jsx` - Full analytics dashboard
+- `AdvancedAnalytics.css` - Beautiful chart styles
+
+**Features:**
+- 📊 4 Key metric cards (animated)
+- 📈 3 Interactive charts (Area, Pie, Bar)
+- 💡 4 Smart insights cards
+- 🎯 Personalized recommendations
+- 💰 Detailed cost analysis
+- 📅 Time range selector
+- 🎨 Dark/Light mode support
 
 ---
 
-### 4. 🕐 Irrigation Scheduling
-**Status:** Planning (0%)
+### 4. 🕐 Irrigation Scheduling (100% Complete)
+**Status:** ✅ LIVE
 
-**Planned Features:**
-- Schedule recurring irrigation
-- Calendar view
-- Time-based triggers
-- Soil moisture-based triggers
-- Pause/resume schedules
-- Multiple schedules per sensor
+**What's Done:**
+- ✅ Create/Edit/Delete schedules
+- ✅ Recurring schedules (select days)
+- ✅ Time-based triggers
+- ✅ Soil moisture-based triggers (conditional)
+- ✅ Enable/Disable schedules
+- ✅ Next run time calculation
+- ✅ Duration control (1-120 minutes)
+- ✅ Multiple schedules per sensor
+- ✅ Beautiful modal UI
+- ✅ LocalStorage persistence
+
+**Files Created:**
+- `IrrigationScheduler.jsx` - Full scheduler component
+- `IrrigationScheduler.css` - Beautiful scheduler UI
+
+**Features:**
+- 📅 **Recurring Schedules:**
+  - Select days (Mon-Sun)
+  - Set specific time
+  - Auto-calculates next run
+- 🎯 **Conditional Schedules:**
+  - Trigger based on soil moisture
+  - Smart auto-watering
+- ⏸️ **Pause/Resume:**
+  - Toggle schedules on/off
+  - Keep settings preserved
+- ✏️ **Full CRUD:**
+  - Create, Edit, Delete
+  - Beautiful modal forms
+- 📊 **Stats:**
+  - Active schedules count
+  - Total schedules
+  - Last run tracking
+
+## 🚧 IN PROGRESS
 
 ---
 
@@ -176,13 +220,13 @@ Users can customize:
 ## 📊 Progress Summary
 
 **Total Features:** 7
-**Completed:** 2 (29%)
+**Completed:** 4 (57%) ✅
 **In Progress:** 0
-**Planned:** 5 (71%)
+**Planned:** 3 (43%)
 
-**Lines of Code Added:** ~500+
-**New Components:** 3
-**New CSS Files:** 2
+**Lines of Code Added:** ~3000+
+**New Components:** 7
+**New CSS Files:** 5
 
 ---
 
@@ -204,6 +248,35 @@ Users can customize:
 - Get free API key from OpenWeatherMap
 - Update `WEATHER_API_KEY` in `WeatherWidget.jsx`
 - Change `location` prop to your city
+
+### Advanced Analytics:
+1. Scroll down to see full analytics dashboard
+2. View key metrics (Water, Cost, Efficiency)
+3. Explore interactive charts
+4. Read smart insights & recommendations
+5. Check cost breakdown
+6. Change time range (week/month/year)
+
+### Irrigation Scheduler:
+1. Scroll to "Irrigation Scheduler" section
+2. Click "Add New Schedule" button
+3. **Create Recurring Schedule:**
+   - Name it (e.g., "Morning Watering")
+   - Select sensor/device
+   - Choose "Recurring" type
+   - Pick days (Mon-Sun)
+   - Set time (e.g., 06:00)
+   - Set duration (minutes)
+   - Click "Create Schedule"
+4. **Create Conditional Schedule:**
+   - Select "Conditional" type
+   - Set soil moisture threshold
+   - Auto-waters when below threshold
+5. **Manage Schedules:**
+   - Toggle on/off (✓ button)
+   - Edit (✏️ button)
+   - Delete (🗑️ button)
+6. Schedules save automatically!
 
 ---
 
