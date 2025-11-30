@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Auth.css';
+import ThemeToggle from './ThemeToggle';
 
 function Login({ onLogin }) {
   const [formData, setFormData] = useState({
@@ -159,6 +160,7 @@ function Login({ onLogin }) {
           </div>
         </div>
       </div>
+      <ThemeToggle />
     </div>
   );
 }

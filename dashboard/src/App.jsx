@@ -9,6 +9,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import ThemeToggle from './ThemeToggle';
+import WeatherWidget from './WeatherWidget';
 
 const API_BASE = '/api';
 
@@ -590,6 +592,7 @@ export default function App({ user, onLogout }) {
       <div className="grid grid-widgets">
         <Cards latest={latest} />
         <WaterUsageWidget waterUsage={waterUsage} />
+        <WeatherWidget location="Delhi" />
       </div>
       
       <Alerts latest={latest} />
@@ -601,6 +604,8 @@ export default function App({ user, onLogout }) {
       {selectedDevice && (
         <DeviceModal device={selectedDevice} onClose={() => setSelectedDevice(null)} />
       )}
+      
+      <ThemeToggle />
     </div>
   );
 }

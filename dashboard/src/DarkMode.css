@@ -1,0 +1,300 @@
+/* ========================================
+   DARK MODE THEME
+   ========================================== */
+
+:root {
+  /* Light theme colors (default) */
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-card: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+  
+  /* Card backgrounds */
+  --card-gradient: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  --header-bg: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  
+  /* Chart colors */
+  --chart-bg: #ffffff;
+  --chart-grid: rgba(0, 0, 0, 0.05);
+  --chart-text: #4a5568;
+}
+
+/* Dark theme colors */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.8);
+  
+  --card-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --header-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  
+  --chart-bg: #1e293b;
+  --chart-grid: rgba(255, 255, 255, 0.05);
+  --chart-text: #cbd5e1;
+}
+
+/* Apply theme to body */
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Container */
+.container {
+  background: var(--bg-primary);
+}
+
+/* Cards */
+.card,
+.sensor-card,
+.stat-card,
+.alert-card,
+.chart-container {
+  background: var(--card-gradient);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.sensor-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Header */
+.header {
+  background: var(--header-bg) !important;
+}
+
+/* Text colors */
+.card h3,
+.card h4,
+.sensor-card h3,
+.sensor-card h4 {
+  color: var(--text-primary);
+}
+
+.card p,
+.sensor-card p {
+  color: var(--text-secondary);
+}
+
+.text-muted,
+.card-subtitle {
+  color: var(--text-muted) !important;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Modal */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+[data-theme="dark"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary);
+}
+
+.modal-header {
+  background: var(--header-bg) !important;
+}
+
+.modal-body {
+  background: var(--bg-secondary) !important;
+}
+
+/* Charts */
+.recharts-wrapper,
+.chart-container {
+  background: var(--chart-bg);
+}
+
+.recharts-text {
+  fill: var(--chart-text) !important;
+}
+
+.recharts-cartesian-grid line {
+  stroke: var(--chart-grid);
+}
+
+/* Stats Panel */
+.stats-panel {
+  background: var(--card-gradient);
+}
+
+.stat-item {
+  border-color: var(--border-color);
+}
+
+/* Alerts */
+.alert {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .alert-critical {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+[data-theme="dark"] .alert-warning {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(180deg);
+  box-shadow: 0 15px 50px rgba(22, 163, 74, 0.5);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Smooth transitions for all theme changes */
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+/* Keep images normal */
+img {
+  transition: none;
+}
+
+/* Auth pages dark mode */
+[data-theme="dark"] .auth-container {
+  background: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(15, 23, 42, 0.75) 100%),
+    url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1920&q=80') center/cover no-repeat fixed;
+}
+
+[data-theme="dark"] .auth-card {
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.7),
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .auth-card input {
+  background: rgba(15, 23, 42, 0.8);
+  color: #f1f5f9;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .auth-card input:focus {
+  border-color: var(--primary);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Device panel dark mode */
+[data-theme="dark"] .device-panel {
+  background: var(--card-gradient);
+}
+
+[data-theme="dark"] .device-card {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .device-card:hover {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: var(--primary);
+}
+
+/* Water usage widget dark mode */
+[data-theme="dark"] .water-usage-widget {
+  background: var(--card-gradient);
+}
+
+/* Scrollbar dark mode */
+[data-theme="dark"] ::-webkit-scrollbar {
+  background: #1e293b;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Animations remain smooth */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-toggle {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Tooltip dark mode */
+[data-theme="dark"] .tooltip {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: rgba(255, 255, 255, 0.1);
+}
