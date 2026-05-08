@@ -13,6 +13,7 @@ import ThemeToggle from './ThemeToggle';
 import WeatherWidget from './WeatherWidget';
 import AdvancedAnalytics from './AdvancedAnalytics';
 import IrrigationScheduler from './IrrigationScheduler';
+import BackgroundAnimations from './BackgroundAnimations';
 
 const API_BASE = '/api';
 
@@ -584,28 +585,38 @@ export default function App({ user, onLogout }) {
   
   return (
     <div className="container">
+      <BackgroundAnimations />
       <Header onRefresh={refresh} loading={loading} user={user} onLogout={onLogout} />
+      {loading && <div className="loading-pill">Syncing live farm data...</div>}
       {error && <div className="alert red">{error}</div>}
       
-      <ImpactMetrics devices={devices} waterUsage={waterUsage} />
+      <section className="section-block section-impact">
+        <ImpactMetrics devices={devices} waterUsage={waterUsage} />
+      </section>
       
-      <DevicePanel devices={devices} onDeviceClick={setSelectedDevice} />
+      <section className="section-block">
+        <DevicePanel devices={devices} onDeviceClick={setSelectedDevice} />
+      </section>
       
-      <div className="grid grid-widgets">
-        <Cards latest={latest} />
-        <WaterUsageWidget waterUsage={waterUsage} />
-        <WeatherWidget location="Delhi" />
-      </div>
+      <section className="section-block">
+        <div className="grid grid-widgets">
+          <Cards latest={latest} />
+          <WaterUsageWidget waterUsage={waterUsage} />
+          <WeatherWidget location="Delhi" />
+        </div>
+      </section>
       
-      <Alerts latest={latest} />
-      <CropRecommendations recommendations={cropRecommendations} />
-      <StatsPanel stats={stats} />
-      <TempHumidityChart data={history} />
-      <SoilChart data={history} />
+      <section className="section-block"><Alerts latest={latest} /></section>
+      <section className="section-block"><CropRecommendations recommendations={cropRecommendations} /></section>
+      <section className="section-block"><StatsPanel stats={stats} /></section>
+      <section className="section-block"><TempHumidityChart data={history} /></section>
+      <section className="section-block"><SoilChart data={history} /></section>
       
-      <IrrigationScheduler devices={devices} />
+      <section className="section-block"><IrrigationScheduler devices={devices} /></section>
       
-      <AdvancedAnalytics history={history} waterUsage={waterUsage} devices={devices} />
+      <section className="section-block">
+        <AdvancedAnalytics history={history} waterUsage={waterUsage} devices={devices} />
+      </section>
       
       {selectedDevice && (
         <DeviceModal device={selectedDevice} onClose={() => setSelectedDevice(null)} />
